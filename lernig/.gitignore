@@ -1,0 +1,68 @@
+# Xcode
+.DS_Store
+build/
+DerivedData/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+
+# SwiftPM
+.swiftpm/
+Package.resolved
+.build/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Firebase / GoogleService
+GoogleService-Info.plist
+
+# Xcode automatically generated docs
+*.docc
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Misc
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+*.orig
+
+# SPM checkouts
+.checkouts/
+
+# XCFrameworks
+*.xcframework
+
+# Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# SwiftLint / Logs / Coverage
+.swiftlint.yml
+*.log
+*.coverage
+
+# Personal config
+*.env
+*.xcconfig
+Secrets.plist
+
+# Info.plist (only if you store a sensitive version — optional)
+# Comment this out if your Info.plist should be version controlled
+# Info.plist
