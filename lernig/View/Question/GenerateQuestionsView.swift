@@ -143,6 +143,7 @@ struct GenerateQuestionsView: View {
                         questionSetId: questionSet.id,
                         questionText: pair.question,
                         answerText: pair.answer,
+ 
                         type: pair.type,
                         testData: pair.testData,
                         createdAt: Date()

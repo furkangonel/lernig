@@ -118,7 +118,7 @@ struct QuestionSetDetailView: View {
                 Button("Generate Questions") {
                     showGenerateForm = true
                 }
-                .buttonStyle(PrimaryButtonStyle())
+                .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                 
                 Button("Add Manually") {
                     isPresentingAddQuestion = true
@@ -178,11 +178,10 @@ struct QuestionSetDetailView: View {
                     .foregroundColor(.white)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
-                    .background(Color.blue)
+                    .background(Color("c_3"))
                     .cornerRadius(20)
                 }
                 .padding(.trailing)
-                .padding(.bottom)
             }
         }
     }

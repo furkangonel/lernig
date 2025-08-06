@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WKMarkdownView
 
 struct TopicDetailView: View {
     @ObservedObject var viewModel: LessonViewModel
@@ -46,14 +47,15 @@ struct TopicDetailView: View {
         }
     }
     
+    
     private var contentView: some View {
         VStack(spacing: 16) {
             if let content = viewModel.contents.first(where: { $0.topicId == topic.id })?.text, !content.isEmpty {
                 ScrollView {
-                    Text(content)
-                        .font(.custom("AppleMyungjo", size: 16))
-                        .padding()
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    VStack(alignment: .leading, spacing: 0) {
+                        MarkdownView(content)
+                    }
+                    .padding()
                 }
                 .background(Color(.systemGray6))
                 .cornerRadius(12)
@@ -67,11 +69,11 @@ struct TopicDetailView: View {
                         .foregroundColor(.secondary)
                     
                     Text("No content yet")
-                        .font(.custom("AppleMyungjo", size: 20))
+                        .font(.custom("SFProRounded-Medium", size: 20))
                         .foregroundColor(.secondary)
                     
                     Text("Generate content for this topic")
-                        .font(.custom("AppleMyungjo", size: 14))
+                        .font(.custom("SFProRounded-Medium", size: 14))
                         .foregroundColor(.secondary)
                 }
                 
@@ -80,7 +82,7 @@ struct TopicDetailView: View {
                 VStack(spacing: 12) {
                     TextField("What would you like to learn about?", text: $prompt)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .font(.custom("AppleMyungjo", size: 16))
+                        .font(.custom("SFProRounded-Medium", size: 16))
                     
                     HStack {
                         if isLoading {
@@ -93,9 +95,9 @@ struct TopicDetailView: View {
                                 Image(systemName: "sparkles")
                                 Text("Generate Content")
                             }
-                            .font(.custom("AppleMyungjo", size: 16))
+                            .font(.custom("SFProRounded-Medium", size: 16))
                         }
-                        .buttonStyle(PrimaryButtonStyle())
+                        .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                         .disabled(prompt.isEmpty || isLoading)
                     }
                 }
@@ -116,11 +118,11 @@ struct TopicDetailView: View {
                         .foregroundColor(.secondary)
                     
                     Text("No question sets yet")
-                        .font(.custom("AppleMyungjo", size: 20))
+                        .font(.custom("SFProRounded-Medium", size: 20))
                         .foregroundColor(.secondary)
                     
                     Text("Create question sets to organize your questions")
-                        .font(.custom("AppleMyungjo", size: 14))
+                        .font(.custom("SFProRounded-Regular", size: 14))
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
                 }
@@ -131,7 +133,7 @@ struct TopicDetailView: View {
                     // Create default first question set
                     viewModel.addQuestionSet(to: topic.id, name: "Question Set 1", description: "First set of questions for \(topic.name)")
                 }
-                .buttonStyle(PrimaryButtonStyle())
+                .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                 .padding()
             } else {
                 // Question sets list
@@ -187,6 +189,7 @@ struct TopicDetailView: View {
     }
 }
 
+// MARK: - QuestionSetRowView (Değişiklik yok)
 struct QuestionSetRowView: View {
     let questionSet: QuestionSet
     @ObservedObject var viewModel: LessonViewModel
@@ -203,17 +206,17 @@ struct QuestionSetRowView: View {
                 
                 VStack(alignment: .leading, spacing: 2) {
                     Text(questionSet.name)
-                        .font(.custom("AppleMyungjo", size: 16))
+                        .font(.custom("SFProRounded-Medium", size: 16))
                         .fontWeight(.medium)
                     
                     HStack(spacing: 12) {
                         Text("\(questionCount) questions")
-                            .font(.custom("AppleMyungjo", size: 12))
+                            .font(.custom("SFProRounded-Medium", size: 12))
                             .foregroundColor(.secondary)
                         
                         if classicCount > 0 {
                             Text("\(classicCount) classic")
-                                .font(.custom("AppleMyungjo", size: 10))
+                                .font(.custom("SFProRounded-Medium", size: 10))
                                 .foregroundColor(.blue)
                                 .padding(.horizontal, 4)
                                 .padding(.vertical, 1)
@@ -223,7 +226,7 @@ struct QuestionSetRowView: View {
                         
                         if testCount > 0 {
                             Text("\(testCount) test")
-                                .font(.custom("AppleMyungjo", size: 10))
+                                .font(.custom("SFProRounded-Medium", size: 10))
                                 .foregroundColor(.green)
                                 .padding(.horizontal, 4)
                                 .padding(.vertical, 1)
@@ -242,13 +245,13 @@ struct QuestionSetRowView: View {
             
             if let description = questionSet.description, !description.isEmpty {
                 Text(description)
-                    .font(.custom("AppleMyungjo", size: 12))
+                    .font(.custom("SFProRounded-Medium", size: 12))
                     .foregroundColor(.secondary)
                     .padding(.leading, 24)
             }
             
             Text("Created: \(questionSet.createdAt.formatted(date: .abbreviated, time: .omitted))")
-                .font(.custom("AppleMyungjo", size: 10))
+                .font(.custom("SFProRounded-Regular", size: 10))
                 .foregroundColor(.secondary)
                 .padding(.leading, 24)
         }
@@ -276,6 +279,17 @@ struct QuestionSetRowView: View {
             }
         }
     }
+}
+
+
+func convertMarkdownToLaTeX(_ markdown: String) -> String {
+    var text = markdown
+    text = text.replacingOccurrences(of: "**", with: "\\textbf{")
+    text = text.replacingOccurrences(of: "*", with: "\\textit{")
+    text = text.replacingOccurrences(of: "## ", with: "\\section*{")
+    text = text.replacingOccurrences(of: "# ", with: "\\subsection*{")
+    text = text.replacingOccurrences(of: "\n", with: "}\n") // kapanışlar
+    return text
 }
 
 #Preview {

@@ -27,10 +27,10 @@ struct QuestionsPage: View {
                             .font(.system(size: 64))
                             .foregroundColor(.secondary)
                         Text("No questions yet")
-                            .font(.custom("AppleMyungjo", size: 24))
+                            .font(.custom("SFProRounded-Regular", size: 24))
                             .foregroundColor(.secondary)
                         Text("Add topics and create questions to see them here")
-                            .font(.custom("AppleMyungjo", size: 16))
+                            .font(.custom("SFProRounded-Regular", size: 16))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.center)
                     }
@@ -107,12 +107,12 @@ struct QuestionRowView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(question.questionText)
-                .font(.custom("AppleMyungjo", size: 16))
+                .font(.custom("SFProRounded-Medium", size: 16))
                 .fontWeight(.medium)
             
             if showAnswer {
                 Text(question.answerText)
-                    .font(.custom("AppleMyungjo", size: 14))
+                    .font(.custom("SFProRounded-Medium", size: 14))
                     .foregroundColor(.secondary)
                     .padding(.leading, 16)
             }
@@ -122,7 +122,7 @@ struct QuestionRowView: View {
                     showAnswer.toggle()
                 }
             }
-            .font(.custom("AppleMyungjo", size: 12))
+            .font(.custom("SFProRounded-Semibold", size: 12))
             .foregroundColor(.blue)
         }
         .padding(.vertical, 4)
@@ -150,21 +150,21 @@ struct QuizView: View {
                         .padding(.horizontal)
                     
                     Text("Question \(currentQuestionIndex + 1) of \(questions.count)")
-                        .font(.custom("AppleMyungjo", size: 16))
+                        .font(.custom("SFProRounded-Semibold", size: 16))
                         .foregroundColor(.secondary)
                     
                     Spacer()
                     
                     // Question
                     Text(currentQuestion.questionText)
-                        .font(.custom("AppleMyungjo", size: 24))
+                        .font(.custom("SFProRounded-Semibold", size: 24))
                         .fontWeight(.medium)
                         .multilineTextAlignment(.center)
                         .padding()
                     
                     if showAnswer {
                         Text(currentQuestion.answerText)
-                            .font(.custom("AppleMyungjo", size: 18))
+                            .font(.custom("SFProRounded-Semibold", size: 18))
                             .foregroundColor(.secondary)
                             .padding()
                             .background(Color.gray.opacity(0.1))
@@ -181,7 +181,7 @@ struct QuizView: View {
                                     showAnswer = true
                                 }
                             }
-                            .buttonStyle(PrimaryButtonStyle())
+                            .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                         } else {
                             HStack(spacing: 16) {
                                 Button("Incorrect") {
@@ -193,7 +193,7 @@ struct QuizView: View {
                                     score += 1
                                     nextQuestion()
                                 }
-                                .buttonStyle(PrimaryButtonStyle())
+                                .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                             }
                         }
                     }
@@ -201,22 +201,21 @@ struct QuizView: View {
                     // Quiz Results
                     VStack(spacing: 24) {
                         Text("Quiz Completed! 🎉")
-                            .font(.custom("AppleMyungjo", size: 32))
-                            .fontWeight(.bold)
+                            .font(.custom("SFProRounded-Bold", size: 32))
                         
                         Text("Your Score: \(score)/\(questions.count)")
-                            .font(.custom("AppleMyungjo", size: 24))
+                            .font(.custom("SFProRounded-Semibold", size: 24))
                         
                         let percentage = Double(score) / Double(questions.count) * 100
                         Text("\(Int(percentage))%")
-                            .font(.custom("AppleMyungjo", size: 48))
+                            .font(.custom("SFProRounded-Semibold", size: 48))
                             .fontWeight(.bold)
                             .foregroundColor(percentage >= 70 ? .green : percentage >= 50 ? .orange : .red)
                         
                         Button("Close") {
                             dismiss()
                         }
-                        .buttonStyle(PrimaryButtonStyle())
+                        .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                     }
                 }
             }

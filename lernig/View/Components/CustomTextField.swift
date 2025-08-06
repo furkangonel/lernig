@@ -19,10 +19,10 @@ struct CustomTextField: View {
     
     var body: some View {
         TextField(placeholder, text: $text)
-            .font(.custom("AppleMyungjo", size: 16))
             .padding(12)
             .background(Color(UIColor.systemGray6))
             .foregroundColor(.primary)
+            .font(.custom("SFProRounded-Regular", size: 16))
             .cornerRadius(10)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)

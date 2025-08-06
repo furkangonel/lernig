@@ -48,6 +48,7 @@ struct EditProfileView: View {
                     }
                 }
             }
+            .font(.custom("SFProRounded-Medium", size: 16.0))
             .onAppear {
                 if let user = authViewModel.currentUser {
                     name = user.name

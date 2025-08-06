@@ -18,14 +18,16 @@ struct lernigApp: App {
         WindowGroup {
             Group {
                 if let user = authViewModel.currentUser {
-                    MainTabView()
+                    CustomTabBarView()
                         .environmentObject(LessonViewModel(currentUserId: user.id))
                 } else if authViewModel.isLoading {
                     ProgressView("Loading...")
                 } else {
                     AuthenticationView()
                 }
+                
             }
+            .tint(Color("c_0"))
             .environmentObject(authViewModel)
             .onAppear {
                 authViewModel.loadCurrentUser()

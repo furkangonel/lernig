@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import WKMarkdownView
 
 struct TestQuestionCardView: View {
     let question: Question
@@ -29,9 +29,11 @@ struct TestQuestionCardView: View {
                 Spacer()
             }
             
-            Text(question.questionText)
+            MarkdownView(question.questionText)
                 .font(.custom("AppleMyungjo", size: 16))
                 .fontWeight(.medium)
+                .clipped()
+
             
             if let testData = question.testData {
                 VStack(alignment: .leading, spacing: 8) {
@@ -44,13 +46,14 @@ struct TestQuestionCardView: View {
                                     Image(systemName: selectedOption == option ? "largecircle.fill.circle" : "circle")
                                         .foregroundColor(selectedOption == option ? .blue : .gray)
                                     
-                                    Text(option)
+                                    MarkdownView(option)
                                         .font(.custom("AppleMyungjo", size: 14))
                                         .foregroundColor(.primary)
                                         .multilineTextAlignment(.leading)
                                         .fixedSize(horizontal: false, vertical: true)
                                         .lineLimit(nil)
                                         .layoutPriority(1)
+                                        .clipped()
                                     
                                     Spacer()
                                     
@@ -79,13 +82,14 @@ struct TestQuestionCardView: View {
                 }
                 
                 if showAnswer {
-                    Text("Explanation: \(question.answerText)")
+                    MarkdownView("Explanation: \(question.answerText)")
                         .font(.custom("AppleMyungjo", size: 12))
                         .foregroundColor(.secondary)
                         .padding(8)
                         .background(Color(.systemGray6))
                         .cornerRadius(8)
                         .transition(.opacity.combined(with: .slide))
+                        .clipped()
                 }
             }
             

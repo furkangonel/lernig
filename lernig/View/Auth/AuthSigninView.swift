@@ -44,10 +44,11 @@ struct AuthSigninView: View {
                         } else {
                             Text("Sign In")
                                 .frame(maxWidth: .infinity)
-                                .font(.custom("AppleMyungjo", size: 20))
+                                .foregroundColor(Color("w_b"))
+                                .font(.custom("SFProRounded-Medium", size: 20))
                         }
                     }
-                    .buttonStyle(PrimaryButtonStyle())
+                    .buttonStyle(PrimaryButtonStyle(color: "c_3"))
                     
                     Button("Create an account") {
                         showSignUp = true
@@ -55,9 +56,9 @@ struct AuthSigninView: View {
                     .padding(.top, 8)
                     .foregroundColor(Color("c_placeText"))
                     .font(
-                        .custom("AppleMyungjo",
+                        .custom("SFProRounded-Bold",
                                 size: 12))
-                   
+                    
                 }
                 .padding()
                 .background(

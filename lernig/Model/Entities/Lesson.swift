@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct Lesson: Identifiable, Codable {
     let id: String
     let userId: String

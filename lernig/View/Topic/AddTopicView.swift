@@ -17,9 +17,12 @@ struct AddTopicView: View {
     var body: some View {
         NavigationStack {
             Form {
-                TextField("Topic Name", text: $topicName)
+                Section(header: Text("Topic Name")) {
+                    TextField("Topic Name", text: $topicName)
+                }
             }
             .navigationTitle("Add Topic")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
                     Button("Save") {
@@ -27,13 +30,32 @@ struct AddTopicView: View {
                         viewModel.addTopic(to: lesson.id)
                         dismiss()
                     }
+                    .font(.custom("SFProRounded-Bold", size: 16.0))
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel", role: .cancel) {
                         dismiss()
                     }
+                    .font(.custom("SFProRounded-Regular", size: 16.0))
                 }
             }
+            //.foregroundColor(Color("c_0"))
+            
         }
     }
+}
+
+
+
+#Preview {
+    let dummyLesson = Lesson(
+        id: "12",
+        userId: "1234",
+        name: "Math",
+        createdAt: Date()
+    )
+    
+    let dummyViewModel = LessonViewModel(currentUserId: "testUser")
+    
+    return AddTopicView(lesson: dummyLesson, viewModel: dummyViewModel)
 }

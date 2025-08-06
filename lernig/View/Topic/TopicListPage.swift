@@ -12,14 +12,12 @@ struct TopicListPage: View {
     let lesson: Lesson
     @ObservedObject var viewModel: LessonViewModel
     @State private var isPresentingAddTopic = false
-    
-    // Preview için mock authViewModel oluşturuyoruz
     @StateObject private var authViewModel = AuthViewModel()
     
     var body: some View {
         List {
             ForEach(viewModel.topics.filter { $0.lessonId == lesson.id }) { topic in
-                // NavigationLink'i basitleştiriyoruz
+
                 NavigationLink {
                     TopicDetailView(viewModel: viewModel,
                                   authViewModel: authViewModel,
@@ -27,10 +25,10 @@ struct TopicListPage: View {
                 } label: {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(topic.name)
-                            .font(.custom("AppleMyungjo", size: 16))
+                            .font(.custom("SFProRounded-Medium", size: 16))
                             .fontWeight(.medium)
                         Text("Created: \(topic.createdAt.formatted(date: .abbreviated, time: .omitted))")
-                            .font(.custom("AppleMyungjo", size: 12))
+                            .font(.custom("SFProRounded-Regular", size: 12))
                             .foregroundColor(.secondary)
                     }
                     .padding(.vertical, 2)
@@ -44,11 +42,15 @@ struct TopicListPage: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Button(action: { isPresentingAddTopic = true }) {
                     Image(systemName: "plus")
+                        //.foregroundColor(Color("c_0"))
+                        .font(.custom("SFProRounded-Bold", size: 16.0))
                 }
             }
         }
+        //.foregroundColor(Color("c_0"))
         .sheet(isPresented: $isPresentingAddTopic) {
             AddTopicView(lesson: lesson, viewModel: viewModel)
+                .presentationDetents([.fraction(0.25), .medium, .large])
         }
         .onAppear {
             viewModel.loadTopics(for: lesson.id)

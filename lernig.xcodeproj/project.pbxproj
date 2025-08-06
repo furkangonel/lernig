@@ -12,32 +12,123 @@
 		8C4684FF2E396405008F18F8 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4684FE2E396405008F18F8 /* FirebaseAuth */; };
 		8C4685012E396405008F18F8 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4685002E396405008F18F8 /* FirebaseCore */; };
 		8C4685032E396405008F18F8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8C4685022E396405008F18F8 /* FirebaseFirestore */; };
+		8C57079F2E42D28C0007AE3D /* WKMarkdownView in Frameworks */ = {isa = PBXBuildFile; productRef = 8C57079E2E42D28C0007AE3D /* WKMarkdownView */; };
+		8C5C566E2E42201D006BBC40 /* MathMarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5C566D2E42201D006BBC40 /* MathMarkdownView.swift */; };
+		8CB5F0152E40CD7B00A2585E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0032E40CD7B00A2585E /* .gitignore */; };
+		8CB5F0162E40CD7B00A2585E /* AppleMyungjo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0052E40CD7B00A2585E /* AppleMyungjo.ttf */; };
+		8CB5F0172E40CD7B00A2585E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0062E40CD7B00A2585E /* Assets.xcassets */; };
+		8CB5F0182E40CD7B00A2585E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0072E40CD7B00A2585E /* GoogleService-Info.plist */; };
+		8CB5F01A2E40CD7B00A2585E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0092E40CD7B00A2585E /* Launch Screen.storyboard */; };
+		8CB5F01C2E40CD7B00A2585E /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFCB2E40CD7B00A2585E /* Lesson.swift */; };
+		8CB5F01D2E40CD7B00A2585E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFCC2E40CD7B00A2585E /* Question.swift */; };
+		8CB5F01E2E40CD7B00A2585E /* QuestionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFCD2E40CD7B00A2585E /* QuestionSet.swift */; };
+		8CB5F01F2E40CD7B00A2585E /* TestQuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFCE2E40CD7B00A2585E /* TestQuestionData.swift */; };
+		8CB5F0202E40CD7B00A2585E /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFCF2E40CD7B00A2585E /* Topic.swift */; };
+		8CB5F0212E40CD7B00A2585E /* TopicContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD02E40CD7B00A2585E /* TopicContent.swift */; };
+		8CB5F0222E40CD7B00A2585E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD12E40CD7B00A2585E /* User.swift */; };
+		8CB5F0232E40CD7B00A2585E /* EducationLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD32E40CD7B00A2585E /* EducationLevel.swift */; };
+		8CB5F0242E40CD7B00A2585E /* QuestionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD42E40CD7B00A2585E /* QuestionType.swift */; };
+		8CB5F0252E40CD7B00A2585E /* TabbedItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD52E40CD7B00A2585E /* TabbedItems.swift */; };
+		8CB5F0262E40CD7B00A2585E /* GeminiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFD72E40CD7B00A2585E /* GeminiResponse.swift */; };
+		8CB5F0272E40CD7B00A2585E /* AuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFDA2E40CD7B00A2585E /* AuthRepository.swift */; };
+		8CB5F0282E40CD7B00A2585E /* LessonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFDB2E40CD7B00A2585E /* LessonRepository.swift */; };
+		8CB5F0292E40CD7B00A2585E /* MockLessonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFDC2E40CD7B00A2585E /* MockLessonRepository.swift */; };
+		8CB5F02A2E40CD7B00A2585E /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFDE2E40CD7B00A2585E /* GeminiService.swift */; };
+		8CB5F02B2E40CD7B00A2585E /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE02E40CD7B00A2585E /* AuthenticationView.swift */; };
+		8CB5F02C2E40CD7B00A2585E /* AuthSigninView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE12E40CD7B00A2585E /* AuthSigninView.swift */; };
+		8CB5F02D2E40CD7B00A2585E /* AuthSignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE22E40CD7B00A2585E /* AuthSignupView.swift */; };
+		8CB5F02E2E40CD7B00A2585E /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE42E40CD7B00A2585E /* CustomSecureField.swift */; };
+		8CB5F02F2E40CD7B00A2585E /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE52E40CD7B00A2585E /* CustomTabBarView.swift */; };
+		8CB5F0302E40CD7B00A2585E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE62E40CD7B00A2585E /* CustomTextField.swift */; };
+		8CB5F0312E40CD7B00A2585E /* PrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE72E40CD7B00A2585E /* PrimaryButtonStyle.swift */; };
+		8CB5F0322E40CD7B00A2585E /* AddLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFE92E40CD7B00A2585E /* AddLessonView.swift */; };
+		8CB5F0332E40CD7B00A2585E /* LessonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFEA2E40CD7B00A2585E /* LessonDetailView.swift */; };
+		8CB5F0342E40CD7B00A2585E /* LessonsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFEB2E40CD7B00A2585E /* LessonsPage.swift */; };
+		8CB5F0352E40CD7B00A2585E /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFED2E40CD7B00A2585E /* EditProfileView.swift */; };
+		8CB5F0362E40CD7B00A2585E /* ProfilePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFEE2E40CD7B00A2585E /* ProfilePage.swift */; };
+		8CB5F0382E40CD7B00A2585E /* AddQuestionToSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF12E40CD7B00A2585E /* AddQuestionToSetView.swift */; };
+		8CB5F0392E40CD7B00A2585E /* ClassicQuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF22E40CD7B00A2585E /* ClassicQuestionCardView.swift */; };
+		8CB5F03A2E40CD7B00A2585E /* GenerateQuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF32E40CD7B00A2585E /* GenerateQuestionsView.swift */; };
+		8CB5F03B2E40CD7B00A2585E /* QuestionSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF42E40CD7B00A2585E /* QuestionSetDetailView.swift */; };
+		8CB5F03C2E40CD7B00A2585E /* QuestionsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF52E40CD7B00A2585E /* QuestionsPage.swift */; };
+		8CB5F03D2E40CD7B00A2585E /* TestQuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF62E40CD7B00A2585E /* TestQuestionCardView.swift */; };
+		8CB5F03E2E40CD7B00A2585E /* StatisticPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFF82E40CD7B00A2585E /* StatisticPage.swift */; };
+		8CB5F03F2E40CD7B00A2585E /* AddTopicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFFA2E40CD7B00A2585E /* AddTopicView.swift */; };
+		8CB5F0402E40CD7B00A2585E /* TopicDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFFB2E40CD7B00A2585E /* TopicDetailView.swift */; };
+		8CB5F0412E40CD7B00A2585E /* TopicListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFFC2E40CD7B00A2585E /* TopicListPage.swift */; };
+		8CB5F0422E40CD7B00A2585E /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5EFFE2E40CD7B00A2585E /* MainTabView.swift */; };
+		8CB5F0432E40CD7B00A2585E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F0002E40CD7B00A2585E /* AuthViewModel.swift */; };
+		8CB5F0442E40CD7B00A2585E /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F0012E40CD7B00A2585E /* LessonViewModel.swift */; };
+		8CB5F0452E40CD7B00A2585E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F0042E40CD7B00A2585E /* AppDelegate.swift */; };
+		8CB5F0462E40CD7B00A2585E /* lernigApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F00A2E40CD7B00A2585E /* lernigApp.swift */; };
+		8CB5F0652E40CEEA00A2585E /* SF-Pro-Rounded-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F05A2E40CEEA00A2585E /* SF-Pro-Rounded-Bold.otf */; };
+		8CB5F0662E40CEEA00A2585E /* SF-Pro-Rounded-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F0612E40CEEA00A2585E /* SF-Pro-Rounded-Ultralight.otf */; };
+		8CB5F0682E40CEEA00A2585E /* SF-Pro-Rounded-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F05F2E40CEEA00A2585E /* SF-Pro-Rounded-Semibold.otf */; };
+		8CB5F06A2E40CEEA00A2585E /* SF-Pro-Rounded-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F05D2E40CEEA00A2585E /* SF-Pro-Rounded-Medium.otf */; };
+		8CB5F06B2E40CEEA00A2585E /* SF-Pro-Rounded-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8CB5F05E2E40CEEA00A2585E /* SF-Pro-Rounded-Regular.otf */; };
+		8CB5F06F2E40FC8200A2585E /* AboutLernigView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F06E2E40FC8200A2585E /* AboutLernigView.swift */; };
+		8CB5F0712E41364C00A2585E /* EmptyStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5F0702E41364C00A2585E /* EmptyStateView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C4684EA2E395FEC008F18F8 /* lernig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lernig.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C5C566D2E42201D006BBC40 /* MathMarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathMarkdownView.swift; sourceTree = "<group>"; };
+		8CB5EFCB2E40CD7B00A2585E /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		8CB5EFCC2E40CD7B00A2585E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		8CB5EFCD2E40CD7B00A2585E /* QuestionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSet.swift; sourceTree = "<group>"; };
+		8CB5EFCE2E40CD7B00A2585E /* TestQuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionData.swift; sourceTree = "<group>"; };
+		8CB5EFCF2E40CD7B00A2585E /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		8CB5EFD02E40CD7B00A2585E /* TopicContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicContent.swift; sourceTree = "<group>"; };
+		8CB5EFD12E40CD7B00A2585E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8CB5EFD32E40CD7B00A2585E /* EducationLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationLevel.swift; sourceTree = "<group>"; };
+		8CB5EFD42E40CD7B00A2585E /* QuestionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionType.swift; sourceTree = "<group>"; };
+		8CB5EFD52E40CD7B00A2585E /* TabbedItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbedItems.swift; sourceTree = "<group>"; };
+		8CB5EFD72E40CD7B00A2585E /* GeminiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiResponse.swift; sourceTree = "<group>"; };
+		8CB5EFDA2E40CD7B00A2585E /* AuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRepository.swift; sourceTree = "<group>"; };
+		8CB5EFDB2E40CD7B00A2585E /* LessonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRepository.swift; sourceTree = "<group>"; };
+		8CB5EFDC2E40CD7B00A2585E /* MockLessonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLessonRepository.swift; sourceTree = "<group>"; };
+		8CB5EFDE2E40CD7B00A2585E /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		8CB5EFE02E40CD7B00A2585E /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		8CB5EFE12E40CD7B00A2585E /* AuthSigninView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSigninView.swift; sourceTree = "<group>"; };
+		8CB5EFE22E40CD7B00A2585E /* AuthSignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSignupView.swift; sourceTree = "<group>"; };
+		8CB5EFE42E40CD7B00A2585E /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
+		8CB5EFE52E40CD7B00A2585E /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		8CB5EFE62E40CD7B00A2585E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		8CB5EFE72E40CD7B00A2585E /* PrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		8CB5EFE92E40CD7B00A2585E /* AddLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLessonView.swift; sourceTree = "<group>"; };
+		8CB5EFEA2E40CD7B00A2585E /* LessonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailView.swift; sourceTree = "<group>"; };
+		8CB5EFEB2E40CD7B00A2585E /* LessonsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsPage.swift; sourceTree = "<group>"; };
+		8CB5EFED2E40CD7B00A2585E /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		8CB5EFEE2E40CD7B00A2585E /* ProfilePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePage.swift; sourceTree = "<group>"; };
+		8CB5EFF12E40CD7B00A2585E /* AddQuestionToSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionToSetView.swift; sourceTree = "<group>"; };
+		8CB5EFF22E40CD7B00A2585E /* ClassicQuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassicQuestionCardView.swift; sourceTree = "<group>"; };
+		8CB5EFF32E40CD7B00A2585E /* GenerateQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQuestionsView.swift; sourceTree = "<group>"; };
+		8CB5EFF42E40CD7B00A2585E /* QuestionSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSetDetailView.swift; sourceTree = "<group>"; };
+		8CB5EFF52E40CD7B00A2585E /* QuestionsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsPage.swift; sourceTree = "<group>"; };
+		8CB5EFF62E40CD7B00A2585E /* TestQuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionCardView.swift; sourceTree = "<group>"; };
+		8CB5EFF82E40CD7B00A2585E /* StatisticPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPage.swift; sourceTree = "<group>"; };
+		8CB5EFFA2E40CD7B00A2585E /* AddTopicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicView.swift; sourceTree = "<group>"; };
+		8CB5EFFB2E40CD7B00A2585E /* TopicDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDetailView.swift; sourceTree = "<group>"; };
+		8CB5EFFC2E40CD7B00A2585E /* TopicListPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicListPage.swift; sourceTree = "<group>"; };
+		8CB5EFFE2E40CD7B00A2585E /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		8CB5F0002E40CD7B00A2585E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		8CB5F0012E40CD7B00A2585E /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
+		8CB5F0032E40CD7B00A2585E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8CB5F0042E40CD7B00A2585E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8CB5F0052E40CD7B00A2585E /* AppleMyungjo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppleMyungjo.ttf; sourceTree = "<group>"; };
+		8CB5F0062E40CD7B00A2585E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CB5F0072E40CD7B00A2585E /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8CB5F0082E40CD7B00A2585E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8CB5F0092E40CD7B00A2585E /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		8CB5F00A2E40CD7B00A2585E /* lernigApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lernigApp.swift; sourceTree = "<group>"; };
+		8CB5F05A2E40CEEA00A2585E /* SF-Pro-Rounded-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Bold.otf"; sourceTree = "<group>"; };
+		8CB5F05D2E40CEEA00A2585E /* SF-Pro-Rounded-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Medium.otf"; sourceTree = "<group>"; };
+		8CB5F05E2E40CEEA00A2585E /* SF-Pro-Rounded-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Regular.otf"; sourceTree = "<group>"; };
+		8CB5F05F2E40CEEA00A2585E /* SF-Pro-Rounded-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Semibold.otf"; sourceTree = "<group>"; };
+		8CB5F0612E40CEEA00A2585E /* SF-Pro-Rounded-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Rounded-Ultralight.otf"; sourceTree = "<group>"; };
+		8CB5F06E2E40FC8200A2585E /* AboutLernigView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutLernigView.swift; sourceTree = "<group>"; };
+		8CB5F0702E41364C00A2585E /* EmptyStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8C4685BA2E39702C008F18F8 /* Exceptions for "lernig" folder in "lernig" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 8C4684E92E395FEC008F18F8 /* lernig */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		8C4684EC2E395FEC008F18F8 /* lernig */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				8C4685BA2E39702C008F18F8 /* Exceptions for "lernig" folder in "lernig" target */,
-			);
-			path = lernig;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8C4684E72E395FEC008F18F8 /* Frameworks */ = {
@@ -45,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C4684FA2E396002008F18F8 /* Alamofire in Frameworks */,
+				8C57079F2E42D28C0007AE3D /* WKMarkdownView in Frameworks */,
 				8C4684FF2E396405008F18F8 /* FirebaseAuth in Frameworks */,
 				8C4685012E396405008F18F8 /* FirebaseCore in Frameworks */,
 				8C4685032E396405008F18F8 /* FirebaseFirestore in Frameworks */,
@@ -58,7 +150,7 @@
 		8C4684E12E395FEC008F18F8 = {
 			isa = PBXGroup;
 			children = (
-				8C4684EC2E395FEC008F18F8 /* lernig */,
+				8CB5F00C2E40CD7B00A2585E /* lernig */,
 				8C4684EB2E395FEC008F18F8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -69,6 +161,189 @@
 				8C4684EA2E395FEC008F18F8 /* lernig.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8CB5EFD22E40CD7B00A2585E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFCB2E40CD7B00A2585E /* Lesson.swift */,
+				8CB5EFCC2E40CD7B00A2585E /* Question.swift */,
+				8CB5EFCD2E40CD7B00A2585E /* QuestionSet.swift */,
+				8CB5EFCE2E40CD7B00A2585E /* TestQuestionData.swift */,
+				8CB5EFCF2E40CD7B00A2585E /* Topic.swift */,
+				8CB5EFD02E40CD7B00A2585E /* TopicContent.swift */,
+				8CB5EFD12E40CD7B00A2585E /* User.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		8CB5EFD62E40CD7B00A2585E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFD32E40CD7B00A2585E /* EducationLevel.swift */,
+				8CB5EFD42E40CD7B00A2585E /* QuestionType.swift */,
+				8CB5EFD52E40CD7B00A2585E /* TabbedItems.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		8CB5EFD82E40CD7B00A2585E /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFD72E40CD7B00A2585E /* GeminiResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		8CB5EFD92E40CD7B00A2585E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFD22E40CD7B00A2585E /* Entities */,
+				8CB5EFD62E40CD7B00A2585E /* Enums */,
+				8CB5EFD82E40CD7B00A2585E /* Responses */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8CB5EFDD2E40CD7B00A2585E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFDA2E40CD7B00A2585E /* AuthRepository.swift */,
+				8CB5EFDB2E40CD7B00A2585E /* LessonRepository.swift */,
+				8CB5EFDC2E40CD7B00A2585E /* MockLessonRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		8CB5EFDF2E40CD7B00A2585E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFDE2E40CD7B00A2585E /* GeminiService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8CB5EFE32E40CD7B00A2585E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFE02E40CD7B00A2585E /* AuthenticationView.swift */,
+				8CB5EFE12E40CD7B00A2585E /* AuthSigninView.swift */,
+				8CB5EFE22E40CD7B00A2585E /* AuthSignupView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		8CB5EFE82E40CD7B00A2585E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5F0702E41364C00A2585E /* EmptyStateView.swift */,
+				8CB5EFE42E40CD7B00A2585E /* CustomSecureField.swift */,
+				8CB5EFE52E40CD7B00A2585E /* CustomTabBarView.swift */,
+				8CB5EFE62E40CD7B00A2585E /* CustomTextField.swift */,
+				8CB5EFE72E40CD7B00A2585E /* PrimaryButtonStyle.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8CB5EFEC2E40CD7B00A2585E /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFE92E40CD7B00A2585E /* AddLessonView.swift */,
+				8CB5EFEA2E40CD7B00A2585E /* LessonDetailView.swift */,
+				8CB5EFEB2E40CD7B00A2585E /* LessonsPage.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
+		8CB5EFF02E40CD7B00A2585E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5F06E2E40FC8200A2585E /* AboutLernigView.swift */,
+				8CB5EFED2E40CD7B00A2585E /* EditProfileView.swift */,
+				8CB5EFEE2E40CD7B00A2585E /* ProfilePage.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8CB5EFF72E40CD7B00A2585E /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFF12E40CD7B00A2585E /* AddQuestionToSetView.swift */,
+				8CB5EFF22E40CD7B00A2585E /* ClassicQuestionCardView.swift */,
+				8CB5EFF32E40CD7B00A2585E /* GenerateQuestionsView.swift */,
+				8CB5EFF42E40CD7B00A2585E /* QuestionSetDetailView.swift */,
+				8CB5EFF52E40CD7B00A2585E /* QuestionsPage.swift */,
+				8CB5EFF62E40CD7B00A2585E /* TestQuestionCardView.swift */,
+			);
+			path = Question;
+			sourceTree = "<group>";
+		};
+		8CB5EFF92E40CD7B00A2585E /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFF82E40CD7B00A2585E /* StatisticPage.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		8CB5EFFD2E40CD7B00A2585E /* Topic */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFFA2E40CD7B00A2585E /* AddTopicView.swift */,
+				8CB5EFFB2E40CD7B00A2585E /* TopicDetailView.swift */,
+				8CB5EFFC2E40CD7B00A2585E /* TopicListPage.swift */,
+			);
+			path = Topic;
+			sourceTree = "<group>";
+		};
+		8CB5EFFF2E40CD7B00A2585E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C5C566D2E42201D006BBC40 /* MathMarkdownView.swift */,
+				8CB5EFE32E40CD7B00A2585E /* Auth */,
+				8CB5EFE82E40CD7B00A2585E /* Components */,
+				8CB5EFEC2E40CD7B00A2585E /* Lesson */,
+				8CB5EFF02E40CD7B00A2585E /* Profile */,
+				8CB5EFF72E40CD7B00A2585E /* Question */,
+				8CB5EFF92E40CD7B00A2585E /* Statistic */,
+				8CB5EFFD2E40CD7B00A2585E /* Topic */,
+				8CB5EFFE2E40CD7B00A2585E /* MainTabView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8CB5F0022E40CD7B00A2585E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5F0002E40CD7B00A2585E /* AuthViewModel.swift */,
+				8CB5F0012E40CD7B00A2585E /* LessonViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8CB5F00C2E40CD7B00A2585E /* lernig */ = {
+			isa = PBXGroup;
+			children = (
+				8CB5EFD92E40CD7B00A2585E /* Model */,
+				8CB5EFDD2E40CD7B00A2585E /* Repository */,
+				8CB5EFDF2E40CD7B00A2585E /* Service */,
+				8CB5EFFF2E40CD7B00A2585E /* View */,
+				8CB5F0022E40CD7B00A2585E /* ViewModel */,
+				8CB5F0032E40CD7B00A2585E /* .gitignore */,
+				8CB5F0042E40CD7B00A2585E /* AppDelegate.swift */,
+				8CB5F0052E40CD7B00A2585E /* AppleMyungjo.ttf */,
+				8CB5F05D2E40CEEA00A2585E /* SF-Pro-Rounded-Medium.otf */,
+				8CB5F05A2E40CEEA00A2585E /* SF-Pro-Rounded-Bold.otf */,
+				8CB5F05F2E40CEEA00A2585E /* SF-Pro-Rounded-Semibold.otf */,
+				8CB5F05E2E40CEEA00A2585E /* SF-Pro-Rounded-Regular.otf */,
+				8CB5F0612E40CEEA00A2585E /* SF-Pro-Rounded-Ultralight.otf */,
+				8CB5F0062E40CD7B00A2585E /* Assets.xcassets */,
+				8CB5F0072E40CD7B00A2585E /* GoogleService-Info.plist */,
+				8CB5F0082E40CD7B00A2585E /* Info.plist */,
+				8CB5F0092E40CD7B00A2585E /* Launch Screen.storyboard */,
+				8CB5F00A2E40CD7B00A2585E /* lernigApp.swift */,
+			);
+			path = lernig;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +361,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				8C4684EC2E395FEC008F18F8 /* lernig */,
-			);
 			name = lernig;
 			packageProductDependencies = (
 				8C4684F92E396002008F18F8 /* Alamofire */,
@@ -96,6 +368,7 @@
 				8C4684FE2E396405008F18F8 /* FirebaseAuth */,
 				8C4685002E396405008F18F8 /* FirebaseCore */,
 				8C4685022E396405008F18F8 /* FirebaseFirestore */,
+				8C57079E2E42D28C0007AE3D /* WKMarkdownView */,
 			);
 			productName = lernig;
 			productReference = 8C4684EA2E395FEC008F18F8 /* lernig.app */;
@@ -128,6 +401,7 @@
 			packageReferences = (
 				8C4684F82E396002008F18F8 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				8C4684FB2E396405008F18F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				8C57079D2E42D28C0007AE3D /* XCRemoteSwiftPackageReference "WKMarkdownView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8C4684EB2E395FEC008F18F8 /* Products */;
@@ -144,6 +418,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB5F0152E40CD7B00A2585E /* .gitignore in Resources */,
+				8CB5F0162E40CD7B00A2585E /* AppleMyungjo.ttf in Resources */,
+				8CB5F0172E40CD7B00A2585E /* Assets.xcassets in Resources */,
+				8CB5F0182E40CD7B00A2585E /* GoogleService-Info.plist in Resources */,
+				8CB5F01A2E40CD7B00A2585E /* Launch Screen.storyboard in Resources */,
+				8CB5F0652E40CEEA00A2585E /* SF-Pro-Rounded-Bold.otf in Resources */,
+				8CB5F0662E40CEEA00A2585E /* SF-Pro-Rounded-Ultralight.otf in Resources */,
+				8CB5F0682E40CEEA00A2585E /* SF-Pro-Rounded-Semibold.otf in Resources */,
+				8CB5F06A2E40CEEA00A2585E /* SF-Pro-Rounded-Medium.otf in Resources */,
+				8CB5F06B2E40CEEA00A2585E /* SF-Pro-Rounded-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +438,51 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CB5F01C2E40CD7B00A2585E /* Lesson.swift in Sources */,
+				8CB5F01D2E40CD7B00A2585E /* Question.swift in Sources */,
+				8CB5F01E2E40CD7B00A2585E /* QuestionSet.swift in Sources */,
+				8CB5F01F2E40CD7B00A2585E /* TestQuestionData.swift in Sources */,
+				8CB5F0202E40CD7B00A2585E /* Topic.swift in Sources */,
+				8CB5F0212E40CD7B00A2585E /* TopicContent.swift in Sources */,
+				8CB5F0222E40CD7B00A2585E /* User.swift in Sources */,
+				8CB5F0232E40CD7B00A2585E /* EducationLevel.swift in Sources */,
+				8CB5F0242E40CD7B00A2585E /* QuestionType.swift in Sources */,
+				8CB5F0252E40CD7B00A2585E /* TabbedItems.swift in Sources */,
+				8CB5F0712E41364C00A2585E /* EmptyStateView.swift in Sources */,
+				8CB5F0262E40CD7B00A2585E /* GeminiResponse.swift in Sources */,
+				8CB5F0272E40CD7B00A2585E /* AuthRepository.swift in Sources */,
+				8CB5F0282E40CD7B00A2585E /* LessonRepository.swift in Sources */,
+				8CB5F0292E40CD7B00A2585E /* MockLessonRepository.swift in Sources */,
+				8CB5F02A2E40CD7B00A2585E /* GeminiService.swift in Sources */,
+				8CB5F02B2E40CD7B00A2585E /* AuthenticationView.swift in Sources */,
+				8C5C566E2E42201D006BBC40 /* MathMarkdownView.swift in Sources */,
+				8CB5F02C2E40CD7B00A2585E /* AuthSigninView.swift in Sources */,
+				8CB5F02D2E40CD7B00A2585E /* AuthSignupView.swift in Sources */,
+				8CB5F02E2E40CD7B00A2585E /* CustomSecureField.swift in Sources */,
+				8CB5F02F2E40CD7B00A2585E /* CustomTabBarView.swift in Sources */,
+				8CB5F0302E40CD7B00A2585E /* CustomTextField.swift in Sources */,
+				8CB5F0312E40CD7B00A2585E /* PrimaryButtonStyle.swift in Sources */,
+				8CB5F0322E40CD7B00A2585E /* AddLessonView.swift in Sources */,
+				8CB5F0332E40CD7B00A2585E /* LessonDetailView.swift in Sources */,
+				8CB5F0342E40CD7B00A2585E /* LessonsPage.swift in Sources */,
+				8CB5F0352E40CD7B00A2585E /* EditProfileView.swift in Sources */,
+				8CB5F0362E40CD7B00A2585E /* ProfilePage.swift in Sources */,
+				8CB5F0382E40CD7B00A2585E /* AddQuestionToSetView.swift in Sources */,
+				8CB5F0392E40CD7B00A2585E /* ClassicQuestionCardView.swift in Sources */,
+				8CB5F03A2E40CD7B00A2585E /* GenerateQuestionsView.swift in Sources */,
+				8CB5F06F2E40FC8200A2585E /* AboutLernigView.swift in Sources */,
+				8CB5F03B2E40CD7B00A2585E /* QuestionSetDetailView.swift in Sources */,
+				8CB5F03C2E40CD7B00A2585E /* QuestionsPage.swift in Sources */,
+				8CB5F03D2E40CD7B00A2585E /* TestQuestionCardView.swift in Sources */,
+				8CB5F03E2E40CD7B00A2585E /* StatisticPage.swift in Sources */,
+				8CB5F03F2E40CD7B00A2585E /* AddTopicView.swift in Sources */,
+				8CB5F0402E40CD7B00A2585E /* TopicDetailView.swift in Sources */,
+				8CB5F0412E40CD7B00A2585E /* TopicListPage.swift in Sources */,
+				8CB5F0422E40CD7B00A2585E /* MainTabView.swift in Sources */,
+				8CB5F0432E40CD7B00A2585E /* AuthViewModel.swift in Sources */,
+				8CB5F0442E40CD7B00A2585E /* LessonViewModel.swift in Sources */,
+				8CB5F0452E40CD7B00A2585E /* AppDelegate.swift in Sources */,
+				8CB5F0462E40CD7B00A2585E /* lernigApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +621,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = lernig/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Lernig;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,6 +651,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = lernig/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Lernig;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -379,6 +710,14 @@
 				minimumVersion = 12.0.0;
 			};
 		};
+		8C57079D2E42D28C0007AE3D /* XCRemoteSwiftPackageReference "WKMarkdownView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weihas/WKMarkdownView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -406,6 +745,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C4684FB2E396405008F18F8 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseFirestore;
+		};
+		8C57079E2E42D28C0007AE3D /* WKMarkdownView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C57079D2E42D28C0007AE3D /* XCRemoteSwiftPackageReference "WKMarkdownView" */;
+			productName = WKMarkdownView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

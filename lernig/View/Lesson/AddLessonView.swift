@@ -18,7 +18,7 @@ struct AddLessonView: View {
             Form {
                 Section(header: Text("Lesson Information")) {
                     TextField("Lesson Name", text: $lessonName)
-                        .font(.custom("AppleMyungjo", size: 16))
+                        .font(.custom("SFProRounded-Regular", size: 16))
                 }
             }
             .navigationTitle("Add Lesson")
@@ -30,13 +30,16 @@ struct AddLessonView: View {
                         viewModel.addLesson()
                         dismiss()
                     }
+                    .font(.custom("SFProRounded-Bold", size: 16.0))
                 }
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel", role: .cancel) {
                         dismiss()
                     }
+                    .font(.custom("SFProRounded-Regular", size: 16.0))
                 }
             }
+            //.foregroundColor(Color("c_0"))
         }
     }
 }

@@ -359,12 +359,14 @@ class LessonViewModel: ObservableObject {
     private func createQuestion(topicId: String, question: String, answer: String) async {
         isLoading = true
         errorMessage = nil
+        
+        
         let newQ = Question(
             topicId: topicId,
             questionSetId: nil,
             questionText: question,
             answerText: answer,
-            type: .classic 
+            type: .classic
         )
         do {
             try await repository.addQuestion(newQ)
@@ -413,6 +415,9 @@ class LessonViewModel: ObservableObject {
                 )
                 
                 for pair in pairs {
+                    //let questionHtml = CreateHtml.createHTML(with: pair.question)
+                    //let answerHtml = CreateHtml.createHTML(with: pair.answer)
+                    
                     let question = Question(
                         topicId: topic.id,
                         questionSetId: questionSetId,

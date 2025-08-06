@@ -14,7 +14,6 @@ struct MainTabView: View {
     @State private var selectedTab = 1 // second tab
     
     init() {
-        // Temporary init, will be updated in onAppear
         self._lessonViewModel = StateObject(wrappedValue: LessonViewModel(currentUserId: ""))
     }
     
@@ -58,10 +57,9 @@ struct MainTabView: View {
                 lessonViewModel.currentUserId = userId
             }
         }
-        
-       
     }
 }
+
 
 #Preview {
     MainTabView()

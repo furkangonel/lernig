@@ -216,6 +216,7 @@ class FirestoreLessonRepository: LessonRepository {
         try await db.collection("questions").document(question.id).setData(questionData)
     }
     
+    
     func deleteQuestion(_ questionId: String) async throws {
         try await db.collection("questions").document(questionId).delete()
     }

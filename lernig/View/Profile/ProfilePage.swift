@@ -10,140 +10,241 @@ import SwiftUI
 
 struct ProfilePage: View {
     @EnvironmentObject var authViewModel: AuthViewModel
-    @StateObject private var lessonViewModel = LessonViewModel(currentUserId: "")
-    @State private var stats = ProfileStats()
-    @State private var showingSettings = false
+    @StateObject private var lessonViewModel = LessonViewModel(currentUserId: "1")
+    @State private var showingDeleteAccountAlert = false
+    @State private var showingLogoutAlert = false
     @State private var showingEditProfile = false
+    @State private var showAbout = false
 
     
     var body: some View {
         NavigationStack {
-            ScrollView {
                 VStack(spacing: 24) {
-                    // User Profile Header
+                    ScrollView {
+                        
                     if let user = authViewModel.currentUser {
-                        VStack(spacing: 16) {
-                            Circle()
-                                .fill(Color("c_1"))
-                                .frame(width: 100, height: 100)
-                                .overlay(
-                                    Text(String(user.name.prefix(1)).uppercased())
-                                        .font(.custom("AppleMyungjo", size: 36))
-                                        .fontWeight(.bold)
-                                        .foregroundColor(.white)
-                                )
-                            
-                            VStack(spacing: 4) {
-                                Text(user.name)
-                                    .font(.custom("AppleMyungjo", size: 24))
-                                    .fontWeight(.bold)
-                                
-                                Text("@\(user.username)")
-                                    .font(.custom("AppleMyungjo", size: 16))
-                                    .foregroundColor(.secondary)
-                                
-                                Text(user.email)
-                                    .font(.custom("AppleMyungjo", size: 14))
-                                    .foregroundColor(.secondary)
-                                
-                                // Education Level Badge
-                                Text(user.educationLevel.rawValue.capitalized)
-                                    .font(.custom("AppleMyungjo", size: 12))
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 4)
-                                    .background(Color("c_1").opacity(0.2))
-                                    .foregroundColor(Color("c_1"))
-                                    .cornerRadius(12)
-                            }
-                            Button("Edit Profile") {
-                                showingEditProfile = true
-                            }
-                            .font(.custom("AppleMyungjo", size: 14))
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .background(Color("c_1").opacity(0.1))
-                            .foregroundColor(Color("c_1"))
-                            .cornerRadius(12)
-                        }
-                        .padding()
-                        .background(Color(.systemBackground))
-                        .cornerRadius(12)
-                        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-                        .padding(.horizontal)
-                        
-                        
-                        // Quick Actions
-                        VStack(alignment: .leading, spacing: 16) {
-                            Text("Quick Actions")
-                                .font(.custom("AppleMyungjo", size: 20))
-                                .fontWeight(.semibold)
-                                .padding(.horizontal)
-                            
-                            VStack(spacing: 12) {
-                                ActionButton(
-                                    title: "Settings",
-                                    subtitle: "Manage your account and preferences",
-                                    icon: "gear",
-                                    action: { showingSettings = true }
-                                )
-                                
-                                ActionButton(
-                                    title: "Export Data",
-                                    subtitle: "Download your lessons and progress",
-                                    icon: "square.and.arrow.up",
-                                    action: { exportData() }
-                                )
-                                
-                                ActionButton(
-                                    title: "Share App",
-                                    subtitle: "Invite friends to join Lernig",
-                                    icon: "square.and.arrow.up.on.square",
-                                    action: { shareApp() }
-                                )
-                            }
-                            .padding(.horizontal)
-                        }
-                        
-                        // Recent Activity
-                        if !stats.recentActivities.isEmpty {
-                            VStack(alignment: .leading, spacing: 16) {
-                                Text("Recent Activity")
-                                    .font(.custom("AppleMyungjo", size: 20))
-                                    .fontWeight(.semibold)
-                                    .padding(.horizontal)
-                                
-                                VStack(spacing: 8) {
-                                    ForEach(stats.recentActivities, id: \.id) { activity in
-                                        ActivityRow(activity: activity)
-                                    }
-                                }
-                                .padding()
-                                .background(Color(.systemBackground))
-                                .cornerRadius(12)
-                                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-                                .padding(.horizontal)
-                            }
-                        }
+                        profileHeader(user: user)
+                        quickActions()
+                        accountActions()
                     }
                 }
-                .padding(.bottom, 100)
             }
             .navigationTitle("Profile")
             .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button(action: { showingSettings = true }) {
-                        Image(systemName: "gear")
-                    }
-                }
-            }
-            .sheet(isPresented: $showingSettings) {
-                SettingsView()
             }
             .sheet(isPresented: $showingEditProfile) {
                 EditProfileView()
             }
+            .sheet(isPresented: $showAbout) {
+                AboutLernigView()
+            }
+            
+            .alert("Sign Out", isPresented: $showingLogoutAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Sign Out", role: .destructive) {
+                    authViewModel.logout()
+                }
+            } message: {
+                Text("Are you sure you want to sign out?")
+            }
+            .alert("Delete Account", isPresented: $showingDeleteAccountAlert) {
+                Button("Cancel", role: .cancel) { }
+                Button("Delete", role: .destructive) {
+                    // Implement account deletion
+                }
+            } message: {
+                Text("This action cannot be undone. All your data will be permanently deleted.")
+            }
+            
+            
         }
     }
+    
+    
+    
+    struct ActionButton: View {
+        let title: String
+        let subtitle: String
+        let icon: String
+        let color: String
+        let action: () -> Void
+        
+        var body: some View {
+            Button(action: {
+                let impactFeedback = UIImpactFeedbackGenerator(style: .light)
+                impactFeedback.impactOccurred()
+                action()
+            }) {
+                HStack(spacing: 12) {
+                    Image(systemName: icon)
+                        .font(.system(size: 20))
+                        .foregroundColor(Color(color))
+                        .frame(width: 32)
+                    
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(title)
+                            .font(.custom("SFProRounded-Semibold", size: 16))
+                            .fontWeight(.medium)
+                            .foregroundColor(.primary)
+                        
+                        Text(subtitle)
+                            .font(.custom("SFProRounded-Semibold", size: 12))
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 12))
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+                .background(Color(.systemBackground))
+                .cornerRadius(12)
+                .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+            }
+            .buttonStyle(.plain)
+        }
+    }
+    
+    // MARK: - User Profile Header
+    @ViewBuilder
+    private func profileHeader(user: User) -> some View {
+        VStack(spacing: 16) {
+            Circle()
+                .fill(Color("c_3"))
+                .frame(width: 100, height: 100)
+                .overlay(
+                    Text(String(user.name.prefix(1)).uppercased())
+                        .font(.custom("SFProRounded-Medium", size: 36))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                )
+            
+            VStack(spacing: 4) {
+                Text(user.name)
+                    .font(.custom("SFProRounded-Regular", size: 24))
+                    .fontWeight(.bold)
+                
+                Text("@\(user.username)")
+                    .font(.custom("SFProRounded-Regular", size: 16))
+                    .foregroundColor(.secondary)
+                
+                Text(user.email)
+                    .font(.custom("SFProRounded-Regular", size: 14))
+                    .foregroundColor(.secondary)
+                
+                // Education Level Badge
+                Text(user.educationLevel.rawValue.capitalized)
+                    .font(.custom("SFProRounded-Regular", size: 12))
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 4)
+                    .background(Color("c_3").opacity(0.2))
+                    .foregroundColor(Color("c_3"))
+                    .cornerRadius(12)
+            }
+            Button("Edit Profile") {
+                showingEditProfile = true
+            }
+            .font(.custom("SFProRounded-Regular", size: 14))
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            .background(Color("c_3").opacity(0.1))
+            .foregroundColor(Color("c_3"))
+            .cornerRadius(12)
+        }
+        .padding()
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
+        .padding(.horizontal)
+        .padding(.bottom, 64)
+    }
+
+    
+    //MARK: - Quick Actions
+    @ViewBuilder
+    private func quickActions() -> some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Quick Actions")
+                .font(.custom("SFProRounded-Semibold", size: 20))
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+            
+            VStack(spacing: 12) {
+                
+                ActionButton(
+                    title: "Export Data",
+                    subtitle: "Download your lessons and progress",
+                    icon: "square.and.arrow.up",
+                    color: "c_3",
+                    action: { exportData() }
+                )
+                
+                ActionButton(
+                    title: "Share App",
+                    subtitle: "Invite friends to join Lernig",
+                    icon: "square.and.arrow.up.on.square",
+                    color: "c_3",
+                    action: { shareApp() }
+                )
+                
+                ActionButton(
+                    title: "About Lernig",
+                    subtitle: "Version 1.0.0",
+                    icon: "info.circle",
+                    color: "c_3",
+                    action: { showAbout = true }
+                )
+            }
+            .padding(.horizontal)
+        }
+        .padding(.bottom, 36)
+    }
+
+    
+    //MARK: - Account Actions
+    @ViewBuilder
+    private func accountActions() -> some View {
+        VStack(alignment: .leading) {
+            Text("Account")
+                .font(.custom("SFProRounded-Semibold", size: 20))
+                .fontWeight(.semibold)
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            
+            // sign-out & delete buttons
+            VStack {
+                    Button {
+                        showingLogoutAlert = true
+                    } label: {
+                        Label("Sign Out", systemImage: "rectangle.portrait.and.arrow.right")
+                            .font(.custom("SFProRounded-Semibold", size: 16.0))
+                            .foregroundColor(Color("b_w"))
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(PrimaryButtonStyle(color: "w_b"))
+                    
+                    
+                    Button {
+                        showingDeleteAccountAlert = true
+                    } label: {
+                        Label("Delete Account", systemImage: "trash")
+                            .font(.custom("SFProRounded-Semibold", size: 16.0))
+                            .foregroundColor(Color("c_2"))
+                            .padding()
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(PrimaryButtonStyle(color: "w_b"))
+            }
+            .padding(.horizontal)
+            .background(Color.white)
+            .cornerRadius(12)
+            .shadow(color: .gray.opacity(0.1), radius: 5)
+        }    }
+    
     
 
     private func exportData() {
@@ -160,156 +261,22 @@ struct ProfilePage: View {
         
         print("Share app tapped")
     }
+    
 }
 
-struct StatCard: View {
-    let title: String
-    let value: String
-    let icon: String
-    let color: Color
-    
-    var body: some View {
-        VStack(spacing: 8) {
-            Image(systemName: icon)
-                .font(.system(size: 24))
-                .foregroundColor(color)
-            
-            Text(value)
-                .font(.custom("AppleMyungjo", size: 24))
-                .fontWeight(.bold)
-            
-            Text(title)
-                .font(.custom("AppleMyungjo", size: 12))
-                .foregroundColor(.secondary)
-        }
-        .frame(maxWidth: .infinity)
-        .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(12)
-        .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-    }
-}
 
-struct ActionButton: View {
-    let title: String
-    let subtitle: String
-    let icon: String
-    let action: () -> Void
-    
-    var body: some View {
-        Button(action: {
-            // Basic haptic feedback
-            let impactFeedback = UIImpactFeedbackGenerator(style: .light)
-            impactFeedback.impactOccurred()
-            action()
-        }) {
-            HStack(spacing: 12) {
-                Image(systemName: icon)
-                    .font(.system(size: 20))
-                    .foregroundColor(Color("c_1"))
-                    .frame(width: 32)
-                
-                VStack(alignment: .leading, spacing: 2) {
-                    Text(title)
-                        .font(.custom("AppleMyungjo", size: 16))
-                        .fontWeight(.medium)
-                        .foregroundColor(.primary)
-                    
-                    Text(subtitle)
-                        .font(.custom("AppleMyungjo", size: 12))
-                        .foregroundColor(.secondary)
-                }
-                
-                Spacer()
-                
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 12))
-                    .foregroundColor(.secondary)
-            }
-            .padding()
-            .background(Color(.systemBackground))
-            .cornerRadius(12)
-            .shadow(color: .gray.opacity(0.2), radius: 4, x: 0, y: 2)
-        }
-        .buttonStyle(.plain)
-    }
-}
 
-struct ActivityRow: View {
-    let activity: RecentActivity
-    
-    var body: some View {
-        HStack(spacing: 12) {
-            Image(systemName: activity.type.icon)
-                .font(.system(size: 16))
-                .foregroundColor(activity.type.color)
-                .frame(width: 24)
-            
-            VStack(alignment: .leading, spacing: 2) {
-                Text(activity.title)
-                    .font(.custom("AppleMyungjo", size: 14))
-                    .foregroundColor(.primary)
-                
-                Text(formatTimeAgo(activity.date))
-                    .font(.custom("AppleMyungjo", size: 12))
-                    .foregroundColor(.secondary)
-            }
-            
-            Spacer()
-        }
-        .padding(.horizontal)
-        .padding(.vertical, 8)
-    }
-    
-    private func formatTimeAgo(_ date: Date) -> String {
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
-        return formatter.localizedString(for: date, relativeTo: Date())
-    }
-}
-
-// MARK: - Data Models
-struct ProfileStats {
-    var totalLessons = 0
-    var totalTopics = 0
-    var totalQuestions = 0
-    var studyStreak = 0
-    var recentActivities: [RecentActivity] = []
-}
-
-struct RecentActivity {
-    let id: String
-    let title: String
-    let date: Date
-    let type: ActivityType
-}
-
-enum ActivityType {
-    case lessonCreated
-    case topicAdded
-    case questionAdded
-    case contentGenerated
-    
-    var icon: String {
-        switch self {
-        case .lessonCreated: return "book.closed"
-        case .topicAdded: return "list.bullet"
-        case .questionAdded: return "questionmark.circle"
-        case .contentGenerated: return "sparkles"
-        }
-    }
-    
-    var color: Color {
-        switch self {
-        case .lessonCreated: return .blue
-        case .topicAdded: return .green
-        case .questionAdded: return .orange
-        case .contentGenerated: return .purple
-        }
-    }
-}
 
 #Preview {
-    ProfilePage()
-        .environmentObject(AuthViewModel())
+    let viewModel = AuthViewModel()
+    viewModel.currentUser = User(
+        id: "123",
+        name: "Furkan Gönel",
+        username: "furkangonel",
+        email: "furkan@example.com",
+        educationLevel: .university
+    )
+    
+    return ProfilePage()
+        .environmentObject(viewModel)
 }

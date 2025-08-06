@@ -6,7 +6,16 @@
 	<string>Launch Screen</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>AppleMyungjo.ttf</string>
+		<string>SF-Pro-Rounded-Bold.otf</string>
+		<string>SF-Pro-Rounded-Medium.otf</string>
+		<string>SF-Pro-Rounded-Regular.otf</string>
+		<string>SF-Pro-Rounded-Semibold.otf</string>
+		<string>SF-Pro-Rounded-Ultralight.otf</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import WKMarkdownView
 
 struct ClassicQuestionCardView: View {
     let question: Question
@@ -28,19 +28,20 @@ struct ClassicQuestionCardView: View {
                 Spacer()
             }
             
-            Text(question.questionText)
+            MarkdownView(question.questionText)
                 .font(.custom("AppleMyungjo", size: 16))
-                .fontWeight(.medium)
+                .clipped()
             
             if showAnswer {
-                Text(question.answerText)
-                    .font(.custom("AppleMyungjo", size: 14))
+                MarkdownView(question.answerText)
+                    .font(.custom("AppleMyungjo", size: 16))
                     .foregroundColor(.secondary)
                     .padding(12)
                     .background(Color(.systemGray6))
                     .cornerRadius(8)
                     .transition(.opacity.combined(with: .slide))
                     .multilineTextAlignment(.leading)
+                    .clipped()
             }
             
             Button(showAnswer ? "Hide Answer" : "Show Answer") {

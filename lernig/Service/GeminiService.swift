@@ -53,7 +53,7 @@ class GeminiService {
         return try await generateText(prompt: enhancedPrompt)
     }
     
-    // MARK: - Question Generation (Updated)
+    // MARK: - Question Generation
     func generateQuestions(lesson: String, topic: Topic, userPrompt: String, count: Int, educationLevel: EducationLevel, questionTypes: [QuestionType]) async throws -> [(question: String, answer: String, type: QuestionType, testData: TestQuestionData?)] {
         
         var allResults: [(question: String, answer: String, type: QuestionType, testData: TestQuestionData?)] = []
@@ -119,7 +119,7 @@ class GeminiService {
         return allResults
     }
     
-    // MARK: - Content Generation (Updated with Education Level)
+    // MARK: - Content Generation
     func generateLearningContent(lesson: String, topic: String, userPrompt: String, educationLevel: EducationLevel) async throws -> String {
         let enhancedPrompt = """
         Ders: \(lesson)
@@ -173,22 +173,22 @@ class GeminiService {
             }
             
             for line in lines {
-                // Soru başlangıcı - AI'ın format çeşitliliğini destekle
+                // Soru baslangici
                 if (line.contains("**Soru") || line.contains("Soru")) &&
                    (line.contains(":") || line.contains(".") || line.contains("**")) {
                     // Önceki soruyu ekle
                     addQuestionIfValid()
                     
-                    // Yeni soru başlat - farklı formatları destekle
+                    // Yeni soru baslat
                     if line.contains("**Soru") {
-                        // "**Soru 1**" formatı
+                        // "**Soru 1**" formati
                         currentQuestionText = line.replacingOccurrences(of: "\\*+", with: "", options: .regularExpression)
                             .replacingOccurrences(of: "Soru\\s*\\d+", with: "", options: .regularExpression)
                             .trimmingCharacters(in: .whitespaces)
                     } else if let colonIndex = line.firstIndex(of: ":") {
                         currentQuestionText = String(line[line.index(after: colonIndex)...]).trimmingCharacters(in: .whitespaces)
                     } else if line.contains(".") {
-                        // "1. Soru" formatı için
+                        // "1. Soru" formati için
                         let components = line.components(separatedBy: ".")
                         if components.count > 1 {
                             currentQuestionText = components.dropFirst().joined(separator: ".").trimmingCharacters(in: .whitespaces)
@@ -201,12 +201,12 @@ class GeminiService {
                     correctAnswerLetter = ""
                     explanation = ""
                 }
-                // Seçenekler A) B) C) D)
+                // Secenekler A-B-C-D
                 else if line.hasPrefix("A)") || line.hasPrefix("B)") || line.hasPrefix("C)") || line.hasPrefix("D)") {
                     let optionText = String(line.dropFirst(2)).trimmingCharacters(in: .whitespaces)
                     currentOptions.append(optionText)
                 }
-                // Doğru cevap - farklı formatları destekle
+                // Dogru cevap
                 else if line.contains("Doğru Cevap") {
                     // "**Doğru Cevap:** B" veya "Doğru Cevap: A" formatlarını destekle
                     let cleanedLine = line.replacingOccurrences(of: "\\*+", with: "", options: .regularExpression)
@@ -215,20 +215,20 @@ class GeminiService {
                             .trimmingCharacters(in: .whitespacesAndNewlines)
                     }
                 }
-                // Açıklama - farklı formatları destekle
+                // Aciklama
                 else if line.contains("Açıklama") {
                     let cleanedLine = line.replacingOccurrences(of: "\\*+", with: "", options: .regularExpression)
                     if let colonIndex = cleanedLine.firstIndex(of: ":") {
                         explanation = String(cleanedLine[cleanedLine.index(after: colonIndex)...]).trimmingCharacters(in: .whitespaces)
                     }
                 }
-                // Eğer açıklama başladıysa ve yeni bir bölüm değilse, açıklamaya ekle
+                // Eger acıklama basladıysa ve yeni bir bölüm degil ise, aciklamayi ekle
                 else if !explanation.isEmpty && !line.contains("**Soru") && !line.contains("Soru") &&
                         !line.contains("Doğru Cevap") && !line.hasPrefix("A)") && !line.hasPrefix("B)") &&
                         !line.hasPrefix("C)") && !line.hasPrefix("D)") && !line.contains("---") {
                     explanation += " " + line
                 }
-                // Eğer currentQuestionText boş değilse ve henüz seçenekler başlamamışsa, soruya ekle
+                // Eger currentQuestionText bos degil ise ve henuz secenekler baslamamis ise, soruya ekle
                 else if !currentQuestionText.isEmpty && currentOptions.isEmpty &&
                         !line.contains("A)") && !line.contains("Doğru Cevap") &&
                         !line.contains("Açıklama") && !line.contains("**Soru") &&
